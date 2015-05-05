@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @attraction.type %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @attraction.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @attraction.description %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @attraction.address %>
+</p>
+
+<p>
+  <strong>Opening hour:</strong>
+  <%= @attraction.opening_hour %>
+</p>
+
+<p>
+  <strong>Duration:</strong>
+  <%= @attraction.duration %>
+</p>
+
+<p>
+  <strong>Reservation:</strong>
+  <%= @attraction.reservation %>
+</p>
+
+<p>
+  <strong>More info:</strong>
+  <%= @attraction.more_info %>
+</p>
+
+<p>
+  <strong>Picture:</strong>
+  <%= @attraction.picture %>
+</p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @attraction.url %>
+</p>
+
+<%= link_to 'Edit', edit_attraction_path(@attraction) %> |
+<%= link_to 'Back', attractions_path %>

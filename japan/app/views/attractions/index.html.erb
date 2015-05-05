@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Attractions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Address</th>
+      <th>Opening hour</th>
+      <th>Duration</th>
+      <th>Reservation</th>
+      <th>More info</th>
+      <th>Picture</th>
+      <th>Url</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @attractions.each do |attraction| %>
+      <tr>
+        <td><%= attraction.type %></td>
+        <td><%= attraction.name %></td>
+        <td><%= attraction.description %></td>
+        <td><%= attraction.address %></td>
+        <td><%= attraction.opening_hour %></td>
+        <td><%= attraction.duration %></td>
+        <td><%= attraction.reservation %></td>
+        <td><%= attraction.more_info %></td>
+        <td><%= attraction.picture %></td>
+        <td><%= attraction.url %></td>
+        <td><%= link_to 'Show', attraction %></td>
+        <td><%= link_to 'Edit', edit_attraction_path(attraction) %></td>
+        <td><%= link_to 'Destroy', attraction, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Attraction', new_attraction_path %>
