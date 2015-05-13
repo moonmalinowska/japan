@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   resources :regions
 
- 
+
  # root :to => 'attractions#index' # strona startowa
 
   # The priority is based upon order of creation: first created -> highest priority.
