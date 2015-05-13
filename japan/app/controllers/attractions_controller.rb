@@ -10,6 +10,7 @@ class AttractionsController < ApplicationController
   # GET /attractions/1
   # GET /attractions/1.json
   def show
+
   end
 
   # GET /attractions/new
@@ -69,6 +70,6 @@ class AttractionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def attraction_params
-      params.require(:attraction).permit(:type, :name, :description, :address, :opening_hour, :duration, :reservation, :more_info, :picture, :url)
+      params.require(:attraction).permit(:tag, :name, :description, :address, :opening_hour, :duration, :reservation, :more_info, :picture, :url)
     end
 end

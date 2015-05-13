@@ -1,9 +1,16 @@
 Rails.application.routes.draw do
+  get 'static_pages/home'
+
+  get 'static_pages/tips'
+
   resources :attractions
 
   resources :categories
 
   resources :regions
+
+ 
+ # root :to => 'attractions#index' # strona startowa
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
