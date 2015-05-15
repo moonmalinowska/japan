@@ -3,8 +3,15 @@ class AttractionsController < ApplicationController
 
   # GET /attractions
   # GET /attractions.json
+
   def index
-    @attractions = Attraction.all
+    #@attractions = Attraction.all
+    #if params[:search]
+    #  @attractions = Attraction.search(params[:search]).order("created_at DESC")
+    #else
+    #  @attractions = Attraction.all.order('created_at DESC')
+    #end
+    @attractions = Attraction.search(params[:search])
   end
 
   # GET /attractions/1

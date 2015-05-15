@@ -44,3 +44,9 @@ group :development, :test do
 end
 
 gem "therubyracer"
+
+gem 'elasticsearch', git: 'git://github.com/elasticsearch/elasticsearch-ruby.git'
+gem 'elasticsearch-model'
+gem 'elasticsearch-rails' 
+
+

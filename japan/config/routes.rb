@@ -3,11 +3,17 @@ Rails.application.routes.draw do
 
   get 'static_pages/tips'
 
+  get 'search', to: 'search#search'
+
   resources :attractions
 
   resources :categories
 
   resources :regions
+
+  resources :attractions do
+    collection { get :search }
+  end
 
 
  # root :to => 'attractions#index' # strona startowa
