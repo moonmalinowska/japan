@@ -8,6 +8,9 @@ class Attraction < ActiveRecord::Base
   belongs_to :region#, touch: true
   belongs_to :category#, touch: true
 
+  acts_as_taggable # Alias for acts_as_taggable_on :tags
+#  acts_as_taggable_on :tag_list, :name, :tag
+
 
   validates :name, presence: true, length: {within: 2..100}
   validates :description, presence: true
@@ -25,8 +28,8 @@ class Attraction < ActiveRecord::Base
       all
     end
   end
-
-
+#tagi
+  @tags = Attraction.tag_counts_on(:tags)
 
 
 end

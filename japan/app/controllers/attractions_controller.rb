@@ -1,9 +1,12 @@
 class AttractionsController < ApplicationController
   before_action :set_attraction, only: [:show, :edit, :update, :destroy]
+  before_action :tag_cloud
 
   # GET /attractions
   # GET /attractions.json
-
+  def tag_cloud
+    @tags = Attraction.tag_counts_on(:tags).order('count desc').limit(20)
+  end
   def index
     #@attractions = Attraction.all
     #if params[:search]
@@ -11,7 +14,13 @@ class AttractionsController < ApplicationController
     #else
     #  @attractions = Attraction.all.order('created_at DESC')
     #end
-    @attractions = Attraction.search(params[:search])
+
+   # @attractions = Attraction.search(params[:search])
+    if params[:tag].present?
+      @attractions = Attraction.tagged_with(params[:tag])
+    else
+      @attractions = Attraction.all.order("created_at DESC")
+    end
   end
 
   # GET /attractions/1
@@ -77,6 +86,9 @@ class AttractionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def attraction_params
-      params.require(:attraction).permit(:tag, :name, :description, :address, :opening_hour, :duration, :reservation, :more_info, :picture, :url)
+      params.require(:attraction).permit(:tag_list, :tag, :name, :description, :address, :opening_hour, :duration,
+                                           :reservation, :more_info, :picture, :url)
     end
 end
+
+#@attraction = Attraction.new(:name => 'pustynia')

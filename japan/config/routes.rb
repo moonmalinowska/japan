@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'tag/show'
+
   get 'static_pages/home'
 
   get 'static_pages/tips'
@@ -14,6 +16,9 @@ Rails.application.routes.draw do
   resources :attractions do
     collection { get :search }
   end
+
+  #resources :tag
+  get 'tags/:tag', to: 'attraction#index', as: :tag
 
 
  # root :to => 'attractions#index' # strona startowa

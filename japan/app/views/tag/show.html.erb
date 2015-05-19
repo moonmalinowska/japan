@@ -1,0 +1,19 @@
+<h1>Attractions Tagged as <%= @tag.name %></h1>
+
+<% if @attractions.count > 0 %>
+
+    <ul>
+
+      <% @attractions.each do |attraction| %>
+
+          <li><%= link_to attraction.name, attraction_path(attraction) %></li>
+
+      <% end %>
+
+    </ul>
+
+<% else %>
+
+    <p>This tag is not associated with any attractions.</p>
+
+<% end %>
