@@ -17,8 +17,8 @@ Rails.application.routes.draw do
     collection { get :search }
   end
 
-  #resources :tag
-  get 'tags/:tag', to: 'attraction#index', as: :tag
+  resources :tag
+  #get 'tags/:tag', to: 'attraction#index', as: :tag
 
 
  # root :to => 'attractions#index' # strona startowa

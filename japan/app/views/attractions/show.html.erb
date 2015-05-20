@@ -1,18 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <% tag_cloud(@tags, %w(css1 css2 css3 css4)) do |tag, css_class| %>
-      <%= link_to tag.name, tag_path(tag), :class => css_class %>
-  <% end %>
 
 
 
-</p>
-
-<p>
-  <strong>Tag:</strong>
-  <%= @attraction.tags.name %>
-</p>
 
 <p>
   <strong>Name:</strong>
@@ -57,6 +47,13 @@
 <p>
   <strong>Url:</strong>
   <%= @attraction.url %>
+</p>
+<p>
+  <strong>Tag:</strong>
+<td><% @attraction.tags.each do |tag| %>
+      <%= link_to tag, tag_path(tag) %>
+  <% end %></td>
+
 </p>
 
 <%= link_to 'Edit', edit_attraction_path(@attraction) %> |

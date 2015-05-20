@@ -3,6 +3,8 @@ class Category < ActiveRecord::Base
 
   validates :name, presence: true, length: {within: 2..100}
 
+
+
  # searchable do
  #   text :name
  #   text :attractions do

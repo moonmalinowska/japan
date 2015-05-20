@@ -13,4 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require typeahead.bundle.min
+//= require social-likes.min
 //= require_tree .

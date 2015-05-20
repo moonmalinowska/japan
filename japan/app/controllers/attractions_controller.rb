@@ -7,19 +7,20 @@ class AttractionsController < ApplicationController
   def tag_cloud
     @tags = Attraction.tag_counts_on(:tags).order('count desc').limit(20)
   end
+
   def index
     #@attractions = Attraction.all
-    #if params[:search]
-    #  @attractions = Attraction.search(params[:search]).order("created_at DESC")
+    #if params[:query].present?
+    #  @attractions = Attraction.search(params[:query])
     #else
-    #  @attractions = Attraction.all.order('created_at DESC')
+    #  @attractions = []
     #end
 
    # @attractions = Attraction.search(params[:search])
     if params[:tag].present?
       @attractions = Attraction.tagged_with(params[:tag])
     else
-      @attractions = Attraction.all.order("created_at DESC")
+     puts 'nic'# @attractions = Attraction.all.order("created_at DESC")
     end
   end
 
@@ -90,5 +91,3 @@ class AttractionsController < ApplicationController
                                            :reservation, :more_info, :picture, :url)
     end
 end
-
-#@attraction = Attraction.new(:name => 'pustynia')

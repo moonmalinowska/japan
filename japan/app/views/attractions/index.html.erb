@@ -33,19 +33,15 @@
         <td><%= attraction.more_info %></td>
         <td><%= attraction.picture %></td>
         <td><%= attraction.url %></td>
-        <td><%= attraction.tags.name %></td>
+        <td><% attraction.tags.each do |tag| %>
+              <%= link_to tag, tag_path(tag) %>
+          <% end %></td>
         <td><%= link_to 'Show', attraction %></td>
         <td><%= link_to 'Edit', edit_attraction_path(attraction) %></td>
         <td><%= link_to 'Destroy', attraction, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
 
     <% end %>
-
-
-
-
-
-
 
 
 

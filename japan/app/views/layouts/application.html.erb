@@ -7,7 +7,58 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<p>
+  <% tag_cloud(@tags, %w(css1 css2 css3 css4)) do |tag, css_class| %>
+      <%= link_to tag.name, tag_path(tag), :class => css_class %>
+  <% end %>
 
+</p>
+<div id="catmenu">
+  <h2>Kategorie</h2>
+  <ul>
+    <li><a href="#"><span>Przemysł chemiczny</span></a></li>
+    <li><a href="#"><span>Przemysł spożywczy</span></a></li>
+    <li><a href="#"><span>Przemysł maszynowy</span></a></li>
+    <li><a href="#"><span>Waluta</span></a></li>
+    <li><a href="#"><span>Waluta</span></a></li>
+    <li><a href="#"><span>Waluta</span></a></li>
+  </ul>
+</div>
+
+
+
+<div>
+<%= form_for search_path, method: :get do |f| %>
+    <p>
+      <%= f.label "Search for" %>
+      <%= text_field_tag :q, params[:q], placeholder: "Search Attractions" %>
+      <%= submit_tag "Go", name: nil %>
+    </p>
+<% end %>
+
+<ul>
+  <% @attractions.each do |attraction| %>
+      <li>
+        <h3>
+          <%= link_to attraction.try(:highlight).try(:name) ? attraction.highlight.name[0].html_safe : attraction.name,
+                      controller: "attractions",
+                      action: "show",
+                      id: attraction.id%>
+        </h3>
+        <% if attraction.try(:highlight).try(:description) %>
+            <% attraction.highlight.description.each do |snippet| %>
+                <p><%= snippet.html_safe %>...</p>
+            <% end %>
+        <% end %>
+        <% if attraction.tags.try(:highlight).try(:name)  %>
+            <% attraction.highlight.tag.each do |snippet| %>
+                <p><%= snippet.html_safe %></p>
+            <% end %>
+        <% end %>
+      </li>
+  <% end %>
+</ul>
+</div>
 <%= yield %>
 
 </body>
