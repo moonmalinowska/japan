@@ -49,11 +49,30 @@
     <%= f.text_area :url %>
   </div>
 
-
     <div class="field">
       <%= f.label :tag_list, "Tags (separated by commas)" %><br />
       <%= f.text_field :tag_list %>
     </div>
+    <div class="field">
+      <%= f.label :latitude %><br>
+      <%= f.text_area :latitude %>
+    </div>
+    <div class="field">
+      <%= f.label :longitude %><br>
+      <%= f.text_area :longitude %>
+    </div>
+    <div class="field">
+
+      <%= f.label :name, "Region" %><br />
+      <%= f.collection_select :region_id, Region.all,:id,:name, prompt: true %>
+    </div>
+    <div class="field">
+
+      <%= f.label :name, "Kategoria" %><br />
+      <%= collection_select :attraction, :category_id, Category.all,:id,:name, prompt: true %>
+
+    </div>
+
 
 
     <div class="actions">

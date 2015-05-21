@@ -51,4 +51,5 @@ gem 'elasticsearch-rails'
 
 gem 'acts-as-taggable-on', '~> 3.4' #tagi
 
-
+gem 'geocoder' #Geolokalizacja
+gem 'gmaps4rails' #Google Maps

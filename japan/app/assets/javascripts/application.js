@@ -15,4 +15,6 @@
 //= require turbolinks
 //= require typeahead.bundle.min
 //= require social-likes.min
+//= require Underscore
+//= require gmaps/google
 //= require_tree .

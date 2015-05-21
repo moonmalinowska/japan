@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   get 'search', to: 'search#search'
 
+
+
   resources :attractions
 
   resources :categories
@@ -18,6 +20,8 @@ Rails.application.routes.draw do
   end
 
   resources :tag
+
+
   #get 'tags/:tag', to: 'attraction#index', as: :tag
 
 
